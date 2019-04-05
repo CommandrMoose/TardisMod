@@ -4,7 +4,6 @@ import net.tardis.mod.common.entities.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -71,6 +70,7 @@ import net.tardis.mod.common.protocols.ProtocolConsole;
 import net.tardis.mod.common.protocols.ProtocolEnabledHADS;
 import net.tardis.mod.common.protocols.ProtocolFindDimDRfit;
 import net.tardis.mod.common.protocols.ProtocolRepair;
+import net.tardis.mod.common.protocols.ProtocolStealth;
 import net.tardis.mod.common.protocols.ProtocolSystemReadout;
 import net.tardis.mod.common.protocols.ProtocolToggleHum;
 import net.tardis.mod.common.protocols.ProtocolWaypoints;
@@ -139,7 +139,7 @@ public class Tardis {
 	public static final String MODID = "tardis";
 	public static final String NAME = "Tardis Mod";
 	public static final String DEP = "after:ic2, galacticraftcore; required-after:forge@[14.23.2.2638,)";
-	public static final String VERSION = "0.0.9B";
+	public static final String VERSION = "0.1.0b";
 	public static final String UPDATE_JSON_URL = "https://raw.githubusercontent.com/Spectre0987/TardisMod/master/update.json";
 	public static final boolean updateChangesConfig = true;
 	public static Logger LOG = LogManager.getLogger(NAME);
@@ -260,14 +260,17 @@ public class Tardis {
 		TardisProtocol.register(new ProtocolWaypoints());
 		TardisProtocol.register(new ProtocolToggleHum());
 		TardisProtocol.register(new ProtocolChangeInterior());
+		TardisProtocol.register(new ProtocolStealth());
 		//TardisProtocol.register(new ProtocolForceField());
 
 		// Register All Mobs Here.
 		EntityHelper.registerMobEgg(EntityCybermanInvasion.class, "invasion_cyberman", TardisConfig.USE_ENTITIES.cybermanSpawnChance, 5, 4);
 		EntityHelper.registerMobEgg(EntityDalek.class, "dalek", 5, 5, 1);
 		EntityHelper.registerMobEgg(EntityQuark.class, "quark", 5, 5, 2);
+
 		EntityHelper.registerMobEgg(EntityRaider.class, "raider", 5, 5, 2);
 		EntityHelper.registerMobEgg(EntityWatcher.class, "watcher", 5, 5, 2);
+
 		//EntityHelper.registerNoSpawnEgg(EntityCybermanTomb.class, "cyberman_tomb", 5, 5);
 		EntityHelper.registerMobEgg(EntityAdipose.class, "adipose", TardisConfig.USE_ENTITIES.adiposeSpawnChance, 5, 3);
 
@@ -290,7 +293,6 @@ public class Tardis {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandlerTardis());
 
 		RepairRecipes.registerRecipe(TItems.fluid_link, TItems.mercuryBottle);
-		RepairRecipes.registerRecipe(TItems.artron_capacitor, Item.getItemFromBlock(Blocks.REDSTONE_BLOCK));
 		RepairRecipes.registerRecipe(TItems.demat_circut, Items.ENDER_PEARL);
 		RepairRecipes.registerRecipe(TItems.antenna, TItems.circuts);
 		RepairRecipes.registerRecipe(TItems.stabilizers, TItems.circuts);
@@ -307,7 +309,7 @@ public class Tardis {
 		ConsoleRoom.registerConsoleRoom("textures/gui/previews/preview_aquatic.png", "interior/interior_aquatic", new BlockPos(19,2,18));
 		ConsoleRoom.registerConsoleRoom("textures/gui/previews/preview_industrial.png", "interior/interior_industrial", new BlockPos(11,2,17));
 		ConsoleRoom.registerConsoleRoom("textures/gui/previews/preview_helian.png", "interior/interior_helian", new BlockPos(18,1,18));
-		ConsoleRoom.registerConsoleRoom("textures/gui/previews/preview_iceshrine.png", "interior/interior_iceshrine", new BlockPos(12, 2, 12));
+		ConsoleRoom.registerConsoleRoom("textures/gui/previews/preview_iceshrine.png", "interior/interior_iceshrine", new BlockPos(11, 2, 11));
 		ConsoleRoom.registerConsoleRoom("textures/gui/previews/preview_magmatic.png", "interior/interior_magmatic", new BlockPos(21, 3, 16));
 
 		ConsoleRoom.registerConsoleRoom("textures/gui/previews/preview_builder.png", "interior/interior_builder", new BlockPos(9, 1, 9));

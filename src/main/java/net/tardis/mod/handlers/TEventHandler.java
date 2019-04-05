@@ -54,9 +54,11 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.tardis.mod.Tardis;
 import net.tardis.mod.api.dimensions.IDimensionProperties;
 import net.tardis.mod.capability.CapabilityTardis;
+import net.tardis.mod.capability.ITardisCap;
 import net.tardis.mod.common.blocks.BlockConsole;
 import net.tardis.mod.common.blocks.TBlocks;
 import net.tardis.mod.common.data.TimeLord;
@@ -271,6 +273,15 @@ public class TEventHandler {
 	}
 	
 	@SubscribeEvent
+	public static void onMissingMappingEntity(RegistryEvent.MissingMappings<EntityEntry> e) {
+		for (RegistryEvent.MissingMappings.Mapping<EntityEntry> map : e.getAllMappings()) {
+			if (map.key.toString().equals("tardis:raider")) {
+				map.ignore();
+			}
+		}
+	}
+	
+	@SubscribeEvent
 	public static void stopDrown(LivingUpdateEvent event) {
 		EntityLivingBase base = event.getEntityLiving();
 		int count = 0;
@@ -303,12 +314,6 @@ public class TEventHandler {
 			}
 		}
 	}
-	
-	@SubscribeEvent
-	public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent e) {
-		CapabilityTardis.endFlight(e.player);
-	}
-	
 	
 	@SubscribeEvent
 	public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent e) {
