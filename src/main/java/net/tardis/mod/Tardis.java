@@ -40,6 +40,22 @@ import net.tardis.mod.common.commands.CommandDebug;
 import net.tardis.mod.common.commands.CommandTardis;
 import net.tardis.mod.common.dimensions.TDimensions;
 import net.tardis.mod.common.dimensions.TDimensions.BiomeReg;
+<<<<<<< HEAD
+=======
+import net.tardis.mod.common.entities.EntityAdipose;
+import net.tardis.mod.common.entities.EntityChair;
+import net.tardis.mod.common.entities.EntityCompanion;
+import net.tardis.mod.common.entities.EntityCorridor;
+import net.tardis.mod.common.entities.EntityCybermanInvasion;
+import net.tardis.mod.common.entities.EntityDalek;
+import net.tardis.mod.common.entities.EntityDalekCasing;
+import net.tardis.mod.common.entities.EntityDalekSkaro;
+import net.tardis.mod.common.entities.EntityDummy;
+import net.tardis.mod.common.entities.EntityItemMaterializer;
+import net.tardis.mod.common.entities.EntityLaserRay;
+import net.tardis.mod.common.entities.EntityQuark;
+import net.tardis.mod.common.entities.EntityRaider;
+>>>>>>> upstream/master
 import net.tardis.mod.common.entities.brak.EntityDoorsBrakSecondary;
 import net.tardis.mod.common.entities.controls.ControlDimChange;
 import net.tardis.mod.common.entities.controls.ControlDirection;
@@ -191,6 +207,7 @@ public class Tardis {
 		EntityHelper.registerStatic(ControlStabilizers.class, "stabilizers");
 		EntityHelper.registerStatic(ControlMonitor.class, "monitor");
 		EntityHelper.registerStatic(ControlWaypoint.class, "waypoint_select");
+		EntityHelper.registerStatic(EntityDummy.class, "dummy");
 		EntityHelper.registerProjectiles(EntityLaserRay.class, "cyber_ray");
 		EntityHelper.registerNoSpawn(EntityCorridor.class, "toyota_corridor");
 		EntityHelper.registerNoSpawn(EntityDalekCasing.class, "dalek_casing");
@@ -215,7 +232,7 @@ public class Tardis {
 		registerTileEntity(TileEntityHellbentLight.class, "TileEntityHellbentLight");
 		registerTileEntity(TileEntityHellbentMonitor.class, "TileEntityHellbentMonitor");
 		registerTileEntity(TileEntityHellbentPole.class, "TileEntityHellbentPole");
-		registerTileEntity(TileEntityHelbentRoof.class, "Tile	EntityHelbentRoof");
+		registerTileEntity(TileEntityHelbentRoof.class, "TileEntityHelbentRoof");
 		registerTileEntity(TileEntityComponentRepair.class, "TileEntityComponentRepair");
 		registerTileEntity(TileEntitySonicGun.class, "TileEntitySonicGun");
 		registerTileEntity(TileEntityChair.class, "chair");
