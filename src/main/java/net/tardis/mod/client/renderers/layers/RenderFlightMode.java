@@ -1,5 +1,7 @@
 package net.tardis.mod.client.renderers.layers;
 
+import java.util.HashMap;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -14,8 +16,6 @@ import net.tardis.mod.capability.ITardisCap;
 import net.tardis.mod.client.EnumExterior;
 import net.tardis.mod.client.models.exteriors.IExteriorModel;
 import net.tardis.mod.util.common.helpers.PlayerHelper;
-
-import java.util.HashMap;
 
 public class RenderFlightMode {
 	
@@ -56,11 +56,10 @@ public class RenderFlightMode {
 			
 			//Render
 			GlStateManager.pushMatrix();
-			
-			GlStateManager.enableAlpha();
 			GlStateManager.enableBlend();
 			
 			//Render alpha colours for Demat/Remat
+			GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, data.getAlpha());
 			
 			//Render the players name, since we cancel the render player event, this won't render without us calling it
@@ -86,7 +85,7 @@ public class RenderFlightMode {
 				
 				//If the player is falling
 				if (player.world.isAirBlock(player.getPosition().down())) {
-					if (player.fallDistance > 0 || !data.hasFuel() || !player.capabilities.isFlying) {
+					if (player.fallDistance > 0 || !data.hasFuel()) {
 						float f = (float) (player.ticksExisted * 3.0f * Math.PI) + e.getPartialRenderTick();
 						float f1 = MathHelper.clamp(f * f / 100.0F, 0.0F, 1.0F);
 						GlStateManager.rotate(-f1 * (-90.0F - player.rotationPitch), 1.0F, 0.0F, 0.0F);
@@ -94,8 +93,7 @@ public class RenderFlightMode {
 				}
 				
 				//Bob the Tardis up and down slightly in flight
-				float offset = 0;
-				offset = MathHelper.cos(player.ticksExisted * 0.1F) * -0.67F;
+				float offset = MathHelper.cos(player.ticksExisted * 0.1F) * -0.67F;
 				GlStateManager.translate(0, -offset, 0);
 				
 				//Rotate Tardis on Z axis based on player motion
@@ -112,7 +110,7 @@ public class RenderFlightMode {
 			
 			//Set things back
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1F);
-			GlStateManager.disableAlpha();
+			//GlStateManager.disableAlpha();
 			GlStateManager.disableBlend();
 			
 			GlStateManager.popMatrix();

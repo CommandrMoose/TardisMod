@@ -45,7 +45,7 @@ public class BiomeMountains extends Biome {
 
 
 	public BiomeMountains() {
-		super(new BiomeProperties("Red Mountains").setBaseHeight(0.4F).setHeightVariation(0.6F).setTemperature(0F).setWaterColor(0xEB623D).setSnowEnabled());
+		super(new BiomeProperties("White Mountains").setBaseHeight(1F).setHeightVariation(1F).setTemperature(1F).setWaterColor(0xEB623D));
 		this.spawnableCaveCreatureList.clear();
 		this.spawnableCreatureList.clear();
 		this.spawnableMonsterList.clear();
@@ -78,8 +78,11 @@ public class BiomeMountains extends Biome {
 	
 	@Override
 	public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double stoneNoiseVal) {
-		IBlockState topBlock = TBlocks.gallifreyan_grass_snow.getDefaultState();
+
+		IBlockState topBlock = TBlocks.gallifreyan_grass.getDefaultState();
 		IBlockState fillerBlock = TBlocks.gallifreyan_dirt.getDefaultState();
+		IBlockState mountainBlock = TBlocks.gallifreyan_stone.getDefaultState();
+		IBlockState mountainTop = TBlocks.gallifreyan_grass_snow.getDefaultState();
 		IBlockState seaFloorBlock = TBlocks.gallifreyan_stone.getDefaultState();
 		
 		boolean hitFloorYet = false;
@@ -116,9 +119,13 @@ public class BiomeMountains extends Biome {
 			if (state.getBlock() == Blocks.STONE) {
 				hitFloorYet = true;
 				if (topBlocksToFill > 0) {
-					if (y >= 62) {
+					if (y > 100) {
+						primer.setBlockState(localZ, y, localX, mountainTop);
+					}
+					else if (y >= 62) {
 						primer.setBlockState(localZ, y, localX, topBlock);
-					} else if (y >= 56 - dirtDepth) {
+
+					}else if (y >= 56 - dirtDepth) {
 						primer.setBlockState(localZ, y, localX, fillerBlock);
 					} else {
 						primer.setBlockState(localZ, y, localX, Blocks.GRAVEL.getDefaultState());

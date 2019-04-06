@@ -196,6 +196,7 @@ public class Tardis {
 		EntityHelper.registerNoSpawn(EntityBessie.class, "bessie");
 		EntityHelper.registerNoSpawn(EntityCompanion.class, "companion");
 		EntityHelper.registerNoSpawn(EntityDalekSkaro.class, "dalek_scaro");
+
 		EntityHelper.registerStatic(EntityChair.class, "chair");
 		EntityHelper.registerStatic(EntityItemMaterializer.class, "item_materializer");
 		EntityHelper.registerStatic(EntityDoorsBrakSecondary.class, "doors_brak_second");
@@ -268,7 +269,7 @@ public class Tardis {
 		EntityHelper.registerMobEgg(EntityDalek.class, "dalek", 5, 5, 1);
 		EntityHelper.registerMobEgg(EntityQuark.class, "quark", 5, 5, 2);
 
-		EntityHelper.registerMobEgg(EntityRaider.class, "raider", 5, 5, 2);
+		EntityHelper.registerMobEgg(EntityRaider.class, "TMraider", 5, 5, 2);
 		EntityHelper.registerMobEgg(EntityWatcher.class, "watcher", 5, 5, 2);
 
 		//EntityHelper.registerNoSpawnEgg(EntityCybermanTomb.class, "cyberman_tomb", 5, 5);
