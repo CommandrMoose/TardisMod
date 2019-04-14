@@ -53,14 +53,7 @@ import net.tardis.mod.client.renderers.entities.*;
 import net.tardis.mod.client.renderers.entities.decoration.RenderBrakDoors;
 import net.tardis.mod.client.renderers.entities.projectiles.RenderLaserRay;
 import net.tardis.mod.client.renderers.entities.vehicles.RenderBessie;
-import net.tardis.mod.client.renderers.exteriors.RenderTileDoor03;
-import net.tardis.mod.client.renderers.exteriors.RenderTileDoor04;
-import net.tardis.mod.client.renderers.exteriors.RenderTileDoor05;
-import net.tardis.mod.client.renderers.exteriors.RenderTileDoorCC;
-import net.tardis.mod.client.renderers.exteriors.RenderTileDoorClock;
-import net.tardis.mod.client.renderers.exteriors.RenderTileDoorTT;
-import net.tardis.mod.client.renderers.exteriors.RenderTileDoorWood;
-import net.tardis.mod.client.renderers.exteriors.RendererTileDoor01;
+import net.tardis.mod.client.renderers.exteriors.*;
 import net.tardis.mod.client.renderers.items.RenderItemAlembic;
 import net.tardis.mod.client.renderers.items.RenderItemFoodMachine;
 import net.tardis.mod.client.renderers.items.RenderItemSpaceHelm;
@@ -81,8 +74,6 @@ import net.tardis.mod.common.blocks.BlockConsole;
 import net.tardis.mod.common.blocks.TBlocks;
 import net.tardis.mod.common.entities.*;
 import net.tardis.mod.common.entities.EntityCompanion.EnumCompanionType;
-<<<<<<< HEAD
-=======
 import net.tardis.mod.common.entities.EntityCorridor;
 import net.tardis.mod.common.entities.EntityCybermanInvasion;
 import net.tardis.mod.common.entities.EntityCybermanTomb;
@@ -94,7 +85,6 @@ import net.tardis.mod.common.entities.EntityItemMaterializer;
 import net.tardis.mod.common.entities.EntityLaserRay;
 import net.tardis.mod.common.entities.EntityQuark;
 import net.tardis.mod.common.entities.EntityRaider;
->>>>>>> upstream/master
 import net.tardis.mod.common.entities.brak.EntityDoorsBrakSecondary;
 import net.tardis.mod.common.entities.controls.ControlDimChange;
 import net.tardis.mod.common.entities.controls.ControlDirection;
@@ -138,13 +128,7 @@ import net.tardis.mod.common.tileentity.decoration.TileEntityHelbentRoof;
 import net.tardis.mod.common.tileentity.decoration.TileEntityHellbentMonitor;
 import net.tardis.mod.common.tileentity.decoration.TileEntityHellbentPole;
 import net.tardis.mod.common.tileentity.decoration.TileEntityToyotaSpin;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor01;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor03;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor04;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor05;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoorCC;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoorClock;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoorWood;
+import net.tardis.mod.common.tileentity.exteriors.*;
 import net.tardis.mod.config.TardisConfig;
 
 import java.io.File;
@@ -219,6 +203,7 @@ public class ClientProxy extends ServerProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDoorClock.class, new RenderTileDoorClock());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDoorTT.class, new RenderTileDoorTT());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDoorWood.class, new RenderTileDoorWood());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDoor06.class, new RenderTileDoor06());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityJsonTester.class, new RenderJsonHelper());
 

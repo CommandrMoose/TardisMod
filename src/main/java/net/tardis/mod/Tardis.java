@@ -2,6 +2,7 @@ package net.tardis.mod;
 
 
 import net.tardis.mod.common.entities.*;
+import net.tardis.mod.common.tileentity.exteriors.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,8 +41,7 @@ import net.tardis.mod.common.commands.CommandDebug;
 import net.tardis.mod.common.commands.CommandTardis;
 import net.tardis.mod.common.dimensions.TDimensions;
 import net.tardis.mod.common.dimensions.TDimensions.BiomeReg;
-<<<<<<< HEAD
-=======
+
 import net.tardis.mod.common.entities.EntityAdipose;
 import net.tardis.mod.common.entities.EntityChair;
 import net.tardis.mod.common.entities.EntityCompanion;
@@ -55,7 +55,7 @@ import net.tardis.mod.common.entities.EntityItemMaterializer;
 import net.tardis.mod.common.entities.EntityLaserRay;
 import net.tardis.mod.common.entities.EntityQuark;
 import net.tardis.mod.common.entities.EntityRaider;
->>>>>>> upstream/master
+
 import net.tardis.mod.common.entities.brak.EntityDoorsBrakSecondary;
 import net.tardis.mod.common.entities.controls.ControlDimChange;
 import net.tardis.mod.common.entities.controls.ControlDirection;
@@ -133,13 +133,6 @@ import net.tardis.mod.common.tileentity.decoration.TileEntityHelbentRoof;
 import net.tardis.mod.common.tileentity.decoration.TileEntityHellbentMonitor;
 import net.tardis.mod.common.tileentity.decoration.TileEntityHellbentPole;
 import net.tardis.mod.common.tileentity.decoration.TileEntityToyotaSpin;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor01;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor03;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor04;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoor05;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoorCC;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoorClock;
-import net.tardis.mod.common.tileentity.exteriors.TileEntityDoorWood;
 import net.tardis.mod.common.world.TardisLoadingCallback;
 import net.tardis.mod.common.world.WorldGenTardis;
 import net.tardis.mod.config.TardisConfig;
@@ -253,6 +246,7 @@ public class Tardis {
 		registerTileEntity(TileEntityDoorClock.class, "TileEntityDoorClock");
 		registerTileEntity(TileEntityDoorTT.class, "TileEntityDoorTT");
 		registerTileEntity(TileEntityDoorWood.class, "TileEntityDoorWood");
+		registerTileEntity(TileEntityDoor06.class, "exterior_six");
 
 		//Interiors
 		registerTileEntity(TileEntityTardis01.class, "TileEntityTardis01");
